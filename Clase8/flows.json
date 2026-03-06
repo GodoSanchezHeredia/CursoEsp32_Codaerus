@@ -1,0 +1,397 @@
+[
+    {
+        "id": "09747d41391d7edf",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d812c67a5e0368d2",
+        "type": "inject",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "Hola Codaerus 1",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "eb7ab9b69ece3de1"
+            ]
+        ]
+    },
+    {
+        "id": "eb7ab9b69ece3de1",
+        "type": "debug",
+        "z": "09747d41391d7edf",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "de4c64a4c8712ac9",
+        "type": "serial in",
+        "z": "09747d41391d7edf",
+        "name": "PuertoSerial",
+        "serial": "57c7b515e5cf5d5d",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "c9c05203472fab9c",
+                "3f74ac5094e4ec0c",
+                "0c60951d5762cc37"
+            ]
+        ]
+    },
+    {
+        "id": "c9c05203472fab9c",
+        "type": "debug",
+        "z": "09747d41391d7edf",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3f74ac5094e4ec0c",
+        "type": "function",
+        "z": "09747d41391d7edf",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.split(\",\")[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 480,
+        "wires": [
+            [
+                "571efb1851f1c6d1"
+            ]
+        ]
+    },
+    {
+        "id": "571efb1851f1c6d1",
+        "type": "ui_gauge",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "group": "4c951def314acfd5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "POTENCIOMETRO 1",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1000",
+        "seg2": "2800",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "0c60951d5762cc37",
+        "type": "function",
+        "z": "09747d41391d7edf",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.split(\",\")[1];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 540,
+        "wires": [
+            [
+                "18283e7f2bf4d33d"
+            ]
+        ]
+    },
+    {
+        "id": "18283e7f2bf4d33d",
+        "type": "ui_gauge",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "group": "4c951def314acfd5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "POTENCIOMETRO 2",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1000",
+        "seg2": "2800",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1828159060debb63",
+        "type": "inject",
+        "z": "09747d41391d7edf",
+        "name": "a",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "a",
+        "payloadType": "str",
+        "x": 190,
+        "y": 660,
+        "wires": [
+            [
+                "76e1ebcf29e355dc"
+            ]
+        ]
+    },
+    {
+        "id": "860c9d8e179baa30",
+        "type": "inject",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "b",
+        "payloadType": "str",
+        "x": 190,
+        "y": 740,
+        "wires": [
+            [
+                "76e1ebcf29e355dc"
+            ]
+        ]
+    },
+    {
+        "id": "76e1ebcf29e355dc",
+        "type": "function",
+        "z": "09747d41391d7edf",
+        "name": "function 3",
+        "func": "if(msg.payload == \"a\"){\n    return msg;\n} else if (msg.payload == \"b\") {\n    return msg;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 700,
+        "wires": [
+            [
+                "276cad38162e8e4c",
+                "2e15ccb0bb0ef90f"
+            ]
+        ]
+    },
+    {
+        "id": "276cad38162e8e4c",
+        "type": "serial out",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "serial": "57c7b515e5cf5d5d",
+        "x": 650,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "2e15ccb0bb0ef90f",
+        "type": "debug",
+        "z": "09747d41391d7edf",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "281b654d60b6e79e",
+        "type": "function",
+        "z": "09747d41391d7edf",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.toString() + \"*\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 900,
+        "wires": [
+            [
+                "809257c59d49f21b",
+                "7ab0556497404489"
+            ]
+        ]
+    },
+    {
+        "id": "809257c59d49f21b",
+        "type": "debug",
+        "z": "09747d41391d7edf",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "6a4a27c2f77e70fc",
+        "type": "ui_slider",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "4c951def314acfd5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1023",
+        "step": "10",
+        "className": "",
+        "x": 190,
+        "y": 920,
+        "wires": [
+            [
+                "281b654d60b6e79e"
+            ]
+        ]
+    },
+    {
+        "id": "7ab0556497404489",
+        "type": "serial out",
+        "z": "09747d41391d7edf",
+        "name": "",
+        "serial": "57c7b515e5cf5d5d",
+        "x": 670,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "57c7b515e5cf5d5d",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "COM8",
+        "serialbaud": "115200",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "4c951def314acfd5",
+        "type": "ui_group",
+        "name": "sensores",
+        "tab": "20648d59a2538d92",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20648d59a2538d92",
+        "type": "ui_tab",
+        "name": "Codaerus",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1c93debd182741fd",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-serialport": "2.0.3",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
