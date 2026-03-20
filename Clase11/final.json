@@ -1,0 +1,369 @@
+[
+    {
+        "id": "5274433c0a35252a",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a12dea0bc41ad908",
+        "type": "mqtt in",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "topic": "data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "23d69b433906529c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 100,
+        "wires": [
+            [
+                "ac5fc1fd9f05a9e0",
+                "2e9c9b3e1c347f44",
+                "726457d441366cdb"
+            ]
+        ]
+    },
+    {
+        "id": "ac5fc1fd9f05a9e0",
+        "type": "debug",
+        "z": "5274433c0a35252a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2e9c9b3e1c347f44",
+        "type": "function",
+        "z": "5274433c0a35252a",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.split(\",\")[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "a2068b3e4861d326"
+            ]
+        ]
+    },
+    {
+        "id": "726457d441366cdb",
+        "type": "function",
+        "z": "5274433c0a35252a",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.split(\",\")[1];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "a08ebe88495f683b"
+            ]
+        ]
+    },
+    {
+        "id": "a2068b3e4861d326",
+        "type": "ui_gauge",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "group": "4c951def314acfd5",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1200",
+        "seg2": "2900",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a08ebe88495f683b",
+        "type": "ui_gauge",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "group": "4c951def314acfd5",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "1200",
+        "seg2": "2900",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "372c8099c9d58849",
+        "type": "inject",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"rpm\":500,\"fuel\":70,\"pressure\":32}",
+        "payloadType": "json",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "ef54b73eb8bd6c1e"
+            ]
+        ]
+    },
+    {
+        "id": "ef54b73eb8bd6c1e",
+        "type": "mqtt out",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "topic": "canaly",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "23d69b433906529c",
+        "x": 830,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e251e1bfb568e0d4",
+        "type": "ui_slider",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "4c951def314acfd5",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "256",
+        "step": "2",
+        "className": "",
+        "x": 330,
+        "y": 660,
+        "wires": [
+            [
+                "3bf505b10b600b90"
+            ]
+        ]
+    },
+    {
+        "id": "8c6c1c3a44ff6b65",
+        "type": "function",
+        "z": "5274433c0a35252a",
+        "name": "function 4",
+        "func": "msg.payload = {\n    \"button\" : msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 720,
+        "wires": [
+            [
+                "ef54b73eb8bd6c1e"
+            ]
+        ]
+    },
+    {
+        "id": "d9815ccdbf49b7a8",
+        "type": "ui_switch",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "4c951def314acfd5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 290,
+        "y": 720,
+        "wires": [
+            [
+                "8c6c1c3a44ff6b65"
+            ]
+        ]
+    },
+    {
+        "id": "f45af0e4ed8a026d",
+        "type": "function",
+        "z": "5274433c0a35252a",
+        "name": "function 3",
+        "func": "msg.payload = {\n    \"slider\" : msg.payload\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bf505b10b600b90",
+        "type": "function",
+        "z": "5274433c0a35252a",
+        "name": "function 5",
+        "func": "msg.payload = msg.payload + \"*\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "ef54b73eb8bd6c1e"
+            ]
+        ]
+    },
+    {
+        "id": "23d69b433906529c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.87",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4c951def314acfd5",
+        "type": "ui_group",
+        "name": "sensores",
+        "tab": "20648d59a2538d92",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20648d59a2538d92",
+        "type": "ui_tab",
+        "name": "Codaerus",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d439e649612adc67",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

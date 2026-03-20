@@ -14,7 +14,7 @@ void app_main(void)
         uint16_t pot2 = adc1_get_raw(ADC1_CHANNEL_4);
 
         printf("Pot 1: %u - Pot 2: %u\n", pot1, pot2);
-        float volt1 = (float)pot1 * 3.3 / 4095;
+        float volt1 = (float)pot1 * 3.3 / 4095;N
         float volt2 = (float)pot2 * 3.3 / 4095;
 
         printf("Voltaje 1: %.2f V\n", volt1);
