@@ -1,0 +1,63 @@
+[
+    {
+        "id": "d9815ccdbf49b7a8",
+        "type": "ui_switch",
+        "z": "5274433c0a35252a",
+        "name": "",
+        "label": "switch",
+        "tooltip": "",
+        "group": "4c951def314acfd5",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 290,
+        "y": 720,
+        "wires": [
+            [
+                "8c6c1c3a44ff6b65"
+            ]
+        ]
+    },
+    {
+        "id": "4c951def314acfd5",
+        "type": "ui_group",
+        "name": "sensores",
+        "tab": "20648d59a2538d92",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "20648d59a2538d92",
+        "type": "ui_tab",
+        "name": "Codaerus",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b2f04db11c1288d3",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
